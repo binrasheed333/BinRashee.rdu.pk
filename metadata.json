@@ -1,0 +1,11 @@
+{
+  "name": "Copy of Bin Rasheed.edu.pk",
+  "description": "A comprehensive life assistant featuring time management, dual calendars, prayer times, AI lesson planning, and Qibla direction.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone",
+    "accelerometer",
+    "gyroscope",
+    "magnetometer"
+  ]
+}
