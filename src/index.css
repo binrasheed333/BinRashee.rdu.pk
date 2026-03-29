@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-neon-blue: #00f2ff;
+  --color-neon-purple: #bc13fe;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white selection:bg-neon-blue/30;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-2xl;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+  }
+  
+  .neon-text {
+    @apply text-neon-blue;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  }
+
+  /* Markdown Table Styles - Overriding prose for better visibility */
+  .prose table, table {
+    @apply !w-full !border-collapse !my-6 !text-sm;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+  .prose th, th {
+    @apply !bg-white/10 !border !border-white/20 !p-3 !text-left !font-black !uppercase !tracking-widest !text-neon-blue;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+  .prose td, td {
+    @apply !border !border-white/10 !p-3 !text-slate-300;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .prose tr:nth-child(even), tr:nth-child(even) {
+    @apply !bg-white/5;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
